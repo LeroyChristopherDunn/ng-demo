@@ -24,20 +24,22 @@ node {
         sh "npm run integrationTest"
     }
 
-    stage('deploying') {
-        sh '''
-        # exit 1 on errors
-        set -e
-        # deal with remote
-        echo "Checking if remote exists..."
-        if ! git ls-remote heroku; then
-          echo "Adding heroku remote..."
-          git remote add heroku https://git.heroku.com/evening-meadow-46789.git
-        fi
-        # push only origin/master to heroku/master - will do nothing if
-        # master doesn't change.
-        echo "Updating heroku master branch..."
-        git push heroku origin/master:master
-        '''
-    }
+    stage('deploy to Dev environment') {
+        sh "echo 'deployed to dev envrionment'"
+    }    
+}
+
+node {
+  input 'Deploy to staging environmet?'
+  stage('deploy to Staging environment') {
+    sh "echo 'deployed to staging envrionment'"
+  }
+}
+
+input 'Deploy to prod environmet?'
+node {
+  input 'Deploy to staging environmet?'
+  stage('deploy to Prod environment') {
+      sh "echo 'deployed to prod envrionment'"
+  }
 }
