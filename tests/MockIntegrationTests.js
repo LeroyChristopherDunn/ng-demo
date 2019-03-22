@@ -1,6 +1,5 @@
 var async = require('async')
 var assert = require('chai').assert;
-var itParam = require("mocha-param").itParam
 
 // begin a test suite of one or more tests
 describe('Mock Integration Test Suite 1', function() {
