@@ -1,9 +1,7 @@
 node {
   
+    agent any
     tools {nodejs "node"}
-
-    sh 'node -v'
-    sh 'npm -v'
 
     stage('check tools') {
         sh "node -v"
