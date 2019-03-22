@@ -1,8 +1,8 @@
 node {
   
-    agent any
-    tools {nodejs "node"}
-
+    def nodeHome = tool name: 'node', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+    env.PATH = "${nodeHome}/bin:${env.PATH}"
+  
     stage('check tools') {
         sh "node -v"
         sh "npm -v"
