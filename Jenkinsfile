@@ -1,8 +1,11 @@
 node {
     
-    def nodeHome = tool name: 'node-10.15.3', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-    env.PATH = "${nodeHome}/bin:${env.PATH}"
+    env.NODEJS_HOME = "${tool 'Node 10.x'}"
+    // on linux / mac
+    env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+
     sh 'node -v'
+    sh 'npm -v'
 
     stage('check tools') {
         sh "node -v"
