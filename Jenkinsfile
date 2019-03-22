@@ -36,10 +36,15 @@ node {
   }
 }
 
-input 'Deploy to prod environmet?'
 node {
-  input 'Deploy to staging environmet?'
+  input 'Deploy to prod environmet?'
   stage('deploy to Prod environment') {
       sh "echo 'deployed to prod envrionment'"
   }
+}
+
+post {
+    always {
+        junit 'build/test-reports/**/*.xml'
+    }
 }
