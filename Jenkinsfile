@@ -29,8 +29,8 @@ node {
     }    
 }
 
-input 'Deploy to staging environmet?'
 node {
+  input 'Deploy to staging environmet?'
   stage('deploy to Staging environment') {
     sh "echo 'deployed to staging envrionment'"
   }
@@ -38,6 +38,7 @@ node {
 
 input 'Deploy to prod environmet?'
 node {
+  input 'Deploy to staging environmet?'
   stage('deploy to Prod environment') {
       sh "echo 'deployed to prod envrionment'"
   }
