@@ -24,7 +24,7 @@ node {
         sh "npm run integrationTest"
     }
 
-    stage('deploy to stagin environment') {
+    stage('deploy to Dev environment') {
         sh "echo 'deployed to dev envrionment'"
     }    
 }
