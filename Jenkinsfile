@@ -17,11 +17,11 @@ node {
     }
 
     stage('unit tests') {
-        sh "npm run ng test"
+        sh "npm run test"
     }
 
-    stage('protractor tests') {
-        sh "npm run ng e2e"
+    stage('integration tests') {
+        sh "npm run integrationTest"
     }
 
     stage('deploying') {
