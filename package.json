@@ -9,6 +9,8 @@
     "build": "ng build",
     "test": "mocha tests/MockUnitTests.js",
     "integrationTest": "mocha tests/MockIntegrationTests.js",
+    "ci_test": "mocha --reporter mocha-junit-reporter tests/MockUnitTests.js | mv test-results.xml unit-test-results.xml | mkdir -p build/test-reports | mv unit-test-results.xml build/test-reports/",
+    "ci_integrationTest": "mocha --reporter mocha-junit-reporter tests/MockIntegrationTests.js | mv test-results.xml integration-test-results.xml | mkdir -p build/test-reports | mv integration-test-results.xml build/test-reports/",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -45,6 +47,7 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "mocha": "~6.0.2",
+    "mocha-junit-reporter": "^1.18.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",

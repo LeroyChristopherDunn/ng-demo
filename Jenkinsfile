@@ -17,11 +17,11 @@ node {
     }
 
     stage('unit tests') {
-        sh "npm run test"
+        sh "npm run ci_test"
     }
 
     stage('integration tests') {
-        sh "npm run integrationTest"
+        sh "npm run ci_integrationTest"
     }
 
     stage('deploy to Dev environment') {
