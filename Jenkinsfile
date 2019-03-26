@@ -32,15 +32,15 @@ node {
 }
 
 node {
-  input 'Deploy to staging environmet?'
   stage('deploy to Staging environment') {
+    input 'Deploy to staging environmet?'
     sh "echo 'deployed to staging envrionment'"
   }
 }
 
 node {
-  input 'Deploy to prod environmet?'
   stage('deploy to Prod environment') {
+      input 'Deploy to prod environmet?'
       sh "echo 'deployed to prod envrionment'"
   }
 }
