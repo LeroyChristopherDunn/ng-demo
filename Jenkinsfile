@@ -17,13 +17,27 @@ node {
     }
 
     stage('unit tests') {
-        sh "npm run ci_test"
-        junit 'test-results.xml'
+
+        try {
+            sh "npm run ci_test"
+            junit 'test-results.xml'
+        } catch(err) {
+            junit 'test-results.xml'
+            throw err
+        }
+        
     }
 
     stage('integration tests') {
-        sh "npm run ci_integrationTest"
-        junit 'test-results.xml'
+
+        try {
+            sh "npm run ci_integrationTest"
+            junit 'test-results.xml'
+        } catch(err) {
+            junit 'test-results.xml'
+            throw err
+        }
+
     }
 
     stage('deploy to Dev environment') {
