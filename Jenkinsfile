@@ -18,10 +18,12 @@ node {
 
     stage('unit tests') {
         sh "npm run ci_test"
+        junit 'build/test-reports/**/*.xml'
     }
 
     stage('integration tests') {
         sh "npm run ci_integrationTest"
+        junit 'build/test-reports/**/*.xml'
     }
 
     stage('deploy to Dev environment') {
@@ -43,8 +45,3 @@ node {
   }
 }
 
-post {
-    always {
-        junit 'build/test-reports/**/*.xml'
-    }
-}
