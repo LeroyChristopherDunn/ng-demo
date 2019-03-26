@@ -18,12 +18,12 @@ node {
 
     stage('unit tests') {
         sh "npm run ci_test"
-        junit 'build/test-reports/**/*.xml'
+        junit 'test-results.xml'
     }
 
     stage('integration tests') {
         sh "npm run ci_integrationTest"
-        junit 'build/test-reports/**/*.xml'
+        junit 'test-results.xml'
     }
 
     stage('deploy to Dev environment') {

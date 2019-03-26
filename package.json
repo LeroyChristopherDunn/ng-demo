@@ -9,8 +9,8 @@
     "build": "ng build",
     "test": "mocha tests/MockUnitTests.js",
     "integrationTest": "mocha tests/MockIntegrationTests.js",
-    "ci_test": "mocha --reporter mocha-junit-reporter tests/MockUnitTests.js | mv test-results.xml unit-test-results.xml | mkdir -p ./build/test-reports | mv unit-test-results.xml ./build/test-reports/",
-    "ci_integrationTest": "mocha --reporter mocha-junit-reporter tests/MockIntegrationTests.js | mv test-results.xml integration-test-results.xml | mkdir -p ./build/test-reports | mv integration-test-results.xml ./build/test-reports/",
+    "ci_test": "mocha --reporter mocha-junit-reporter tests/MockUnitTests.js",
+    "ci_integrationTest": "mocha --reporter mocha-junit-reporter tests/MockIntegrationTests.js",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
