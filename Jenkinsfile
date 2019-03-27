@@ -3,7 +3,7 @@ node {
     def nodeHome = tool name: 'node', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
     env.PATH = "${nodeHome}/bin:${env.PATH}"
   
-    stage('check tools') {
+    stage('check environment') {
         sh "node -v"
         sh "npm -v"
     }
@@ -12,11 +12,12 @@ node {
         checkout scm
     }
 
-    stage('npm install') {
+    stage('build') {
         sh "npm install"
+        sh "npm run build"
     }
 
-    stage('unit tests') {
+    stage('unit test') {
 
         try {
             sh "npm run ci_test"
@@ -28,7 +29,7 @@ node {
         
     }
 
-    stage('integration tests') {
+    stage('integration test') {
 
         try {
             sh "npm run ci_integrationTest"
@@ -40,16 +41,16 @@ node {
 
     }
 
-    stage('deploy to Dev environment') {
+    stage('Dev deploy') {
         sh "echo 'deployed to dev envrionment'"
     }    
   
-    stage('deploy to Staging environment') {
+    stage('Staging deploy') {
       input 'Deploy to staging environmet?'
       sh "echo 'deployed to staging envrionment'"
     }
   
-    stage('deploy to Prod environment') {
+    stage('Prod deploy') {
       input 'Deploy to prod environmet?'
       sh "echo 'deployed to prod envrionment'"
   }
