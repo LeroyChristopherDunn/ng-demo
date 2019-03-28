@@ -7,7 +7,7 @@ describe('Mock Unit Test Suite 1', function() {
     // test a functionality
     it('should do something 1', function() {
       // add an assertion
-      assert.equal(5, 5);
+      assert.equal(5, 6);
     })
 
     it('should do something 2', function() {
