@@ -44,15 +44,6 @@ node {
     stage('Dev deploy') {
         sh "echo 'deployed to dev envrionment'"
     }    
-  
-    stage('Staging deploy') {
-      input 'Deploy to staging environmet?'
-      sh "echo 'deployed to staging envrionment'"
-    }
-  
-    stage('Prod deploy') {
-      input 'Deploy to prod environmet?'
-      sh "echo 'deployed to prod envrionment'"
-  }
+
 }
 
